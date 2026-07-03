@@ -14,5 +14,8 @@ public class PlayerMovestate : EntityState
         if (player.moveinput.x == 0)
             StateMachine.changeState(player.idlestate);
 
+
+        player.SetVelocity(player.moveinput.x * player.moveSpeed,rb.velocity.y);
+
     }
 }
