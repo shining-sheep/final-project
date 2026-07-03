@@ -9,13 +9,17 @@ public abstract class EntityState
     protected Player player;
 
     protected Animator anim;
+    protected Rigidbody2D rb;
 
     public EntityState(Player player ,StateMachine stateMachine,string animBoolName) 
     {   
         this.player = player;
         this.StateMachine = stateMachine;
         this.animBoolName = animBoolName;
+
+
         anim = player.anim;
+        rb = player.rb;
 
        
     }
