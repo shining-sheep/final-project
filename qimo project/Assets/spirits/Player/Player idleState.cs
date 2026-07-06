@@ -2,10 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayeridleState : EntityState
+public class PlayeridleState : PlayerGroundedState
 {
     public PlayeridleState(Player player,StateMachine stateMachine, string stateName) : base(player,stateMachine, stateName)
     {
+    }
+
+    public override void Enter()
+    {
+        base.Enter();
+
+        player.SetVelocity(0, rb.velocity.y);
     }
 
     public override void Update()
@@ -14,6 +21,9 @@ public class PlayeridleState : EntityState
 
         if (player.moveinput.x != 0)
             StateMachine.changeState(player.movestate);
+
+
+        
         
 
        
