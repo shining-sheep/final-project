@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovestate : EntityState
+public class PlayerMovestate : PlayerGroundedState
 {
     public PlayerMovestate(Player player, StateMachine stateMachine, string stateName) : base(player, stateMachine, stateName)
     {
@@ -11,6 +11,7 @@ public class PlayerMovestate : EntityState
     public override void Update()
     {
         base.Update();
+
         if (player.moveinput.x == 0)
             StateMachine.changeState(player.idlestate);
 
