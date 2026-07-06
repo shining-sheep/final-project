@@ -1015,13 +1015,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fca63d129bd7c5f448f2ff0f0ffd8a98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 2
-  jumpForce: 5
+  moveSpeed: 6
+  jumpForce: 12
+  inAirMoveMultiplier: 0.7
+  wallSlideSlowMultiplier: 0.7
   groundCheckDistance: 0.9
+  wallCheckDistance: 0.5
   whatIsGround:
     serializedVersion: 2
-    m_Bits: 0
-  groundDetected: 1
+    m_Bits: 64
 --- !u!4 &672030749
 Transform:
   m_ObjectHideFlags: 0
@@ -1052,8 +1054,8 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_GravityScale: 3.5
+  m_Material: {fileID: 6200000, guid: 8159527ab7c55a64e87f0e382a3622d6, type: 2}
   m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 1
