@@ -2627,6 +2627,8 @@ MonoBehaviour:
   walljumpForce: {x: 6, y: 12}
   inAirMoveMultiplier: 0.7
   wallSlideSlowMultiplier: 0.7
+  dashDuration: 0.25
+  dashSpeed: 20
   groundCheckDistance: 0.9
   wallCheckDistance: 0.5
   whatIsGround:
