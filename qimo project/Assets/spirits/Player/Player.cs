@@ -26,6 +26,7 @@ public class Player : MonoBehaviour
     public Vector2[] attackVelocity;
     public float attackvelocityDuration = .1f;
     public float comboResetTime = 1;
+    private Coroutine queuedAttackCo;
 
 
     [Header("Movement details")]
@@ -106,6 +107,21 @@ public class Player : MonoBehaviour
     {
         HandleCollisionDetection();
         stateMachine.UpdateAciveState();
+    }
+
+    public void EnterAttackStateWithDelay()
+    {
+        if (queuedAttackCo != null)
+            StopCoroutine(queuedAttackCo);
+
+        queuedAttackCo = StartCoroutine(EnterAttackStateWithDelayCo());
+    }
+   
+
+    private IEnumerator EnterAttackStateWithDelayCo()
+    {
+        yield return new WaitForEndOfFrame();
+        stateMachine.changeState(basicAttackState);
     }
 
     public void CallAnimationTrigger()
