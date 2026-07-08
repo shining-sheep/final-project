@@ -5,23 +5,40 @@ using UnityEngine;
 public class PlayerBasicAttackState : EntityState
 {
     private float attackVelocityTimer;
+    private const int FirstComboIndex = 1;//初始攻击计数变量
+    private int comboIndex = 1;
+    private int comboLimit = 3;
+
+    private float lastTimeAttacked;
     public PlayerBasicAttackState(Player player, StateMachine stateMachine, string animBoolName) : base(player, stateMachine, animBoolName)
     {
+        if (comboLimit != player.attackVelocity.Length)
+            comboLimit = player.attackVelocity.Length;
     }
 
     public override void Enter()
     {
         base.Enter();
-
-       
-        GenerateAttackVelocity();
+        ResetComboIndexIfNeeded();
+        anim.SetInteger("basicAttackindex", comboIndex);
+        ApplyAttackVelocity();
 
     }
+
+    
+
     public override void Update()
     {
         base.Update();
+        player.SetVelocity(0, rb.velocity.y);
         if (triggerCalled)
             StateMachine.changeState(player.idlestate);
+    }
+    public override void Exit()
+    {
+        base.Exit();
+        comboIndex++;
+        lastTimeAttacked = Time.time;
     }
     private void HandleAttackVelocity()
     {
@@ -31,11 +48,19 @@ public class PlayerBasicAttackState : EntityState
           
     }
 
-    private void GenerateAttackVelocity()
+    private void ApplyAttackVelocity()
     {
+        Vector2 attackVelocity = player.attackVelocity[comboIndex-1];
         attackVelocityTimer = player.attackvelocityDuration;
-        player.SetVelocity(player.attackVelocity.x * player.facingDir, player.attackVelocity.y);
+        player.SetVelocity(attackVelocity.x * player.facingDir, attackVelocity.y);
     }
 
+private void ResetComboIndexIfNeeded()
+    {
+        if (Time.time > lastTimeAttacked + player.comboResetTime)
+            comboIndex = FirstComboIndex;
 
+        if (comboIndex > comboLimit||Time.time > lastTimeAttacked + player.comboResetTime)
+            comboIndex = FirstComboIndex;
+    }
 }
