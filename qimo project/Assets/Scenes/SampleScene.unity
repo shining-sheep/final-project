@@ -2626,10 +2626,11 @@ MonoBehaviour:
   - {x: 3, y: 1.5}
   - {x: 1, y: 2.5}
   - {x: 2.75, y: 1.75}
+  jumpAttackVelocity: {x: 5, y: -6}
   attackvelocityDuration: 0.1
   comboResetTime: 1
   moveSpeed: 7
-  jumpForce: 11
+  jumpForce: 15
   walljumpForce: {x: 6, y: 12}
   inAirMoveMultiplier: 0.7
   wallSlideSlowMultiplier: 0.7
@@ -2670,7 +2671,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 3
+  m_GravityScale: 3.5
   m_Material: {fileID: 6200000, guid: 8159527ab7c55a64e87f0e382a3622d6, type: 2}
   m_Interpolate: 1
   m_SleepingMode: 1

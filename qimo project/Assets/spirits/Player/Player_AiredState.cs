@@ -12,9 +12,12 @@ public class Player_AiredState : EntityState
     {
         base.Update();
 
-        float horizontal = player.moveinput.x * player.moveSpeed*player.inAirMoveMultiplier;
+        float horizontal = player.moveinput.x * player.moveSpeed * player.inAirMoveMultiplier;
         float vertical = player.rb.velocity.y;   // 注意用 player.rb 访问刚体
 
         player.SetVelocity(horizontal, vertical);
+
+        if (input.Player.Attack.WasPerformedThisFrame())
+            StateMachine.changeState(player.jumpAttackState);
     }
 }
