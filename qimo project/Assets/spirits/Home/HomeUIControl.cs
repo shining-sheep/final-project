@@ -48,7 +48,7 @@ public class HomeUIControl : MonoBehaviour
 
     void start()
     {
-        SceneManager.LoadScene("Menu");//到时候可以创建一个Menu选关界面
+        SceneManager.LoadScene("SampleScene");//到时候可以创建一个Menu选关界面
     }
 
 
