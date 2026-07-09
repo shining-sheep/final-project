@@ -8,7 +8,7 @@ public class ListUIControl : MonoBehaviour//这个代码就放在这，关联性很低的
 
 
     public GameObject ListUI;
-    bool isList = false;
+    
     public GameObject HomeUI;
 
     public HomeUIControl UIScript;
@@ -26,7 +26,6 @@ public class ListUIControl : MonoBehaviour//这个代码就放在这，关联性很低的
         {
             UIScript.gameObject.SetActive(true);
             ListUI.gameObject.SetActive(false);
-            isList = false;
         }
     }
 }
