@@ -6,55 +6,59 @@ using UnityEngine.UI;
 
 public class SettingUIControl : MonoBehaviour
 {
-    [SerializeField] private Text Normaled;
-    [SerializeField] private Text Hard;
+    [SerializeField] private Text normalText;
+    [SerializeField] private Text hardText;
+
+    [SerializeField] private GameObject settingUI;
+    [SerializeField] private GameObject homeUI;
+
+
+    [SerializeField] private HomeUIControl homeUIScript;
 
 
 
-    Button LeftBtn;
-    Button RightBtn;
-    Button BackBtn;          
+    [SerializeField] private Button leftBtn;
+    [SerializeField] private Button rightBtn;
+    [SerializeField] private Button backBtn;   
+    
+    private bool isHardMode = false;
 
-    private void Awake()
-    {
-
-        Normaled = GetComponent<Text>();
-        Hard = GetComponent<Text>();
-
-        LeftBtn = transform.GetChild(0).GetComponent<Button>();        
-        RightBtn = transform.GetChild(1).GetComponent<Button>();      
-        BackBtn = transform.GetChild(2).GetComponent<Button>();      
-
-
-        LeftBtn.onClick.AddListener(Left);
-        RightBtn.onClick.AddListener(Right);
-        BackBtn.onClick.AddListener(Back);     
-    }
     void Start()
     {
-        
+        homeUI.gameObject.SetActive(true);
+        settingUI.gameObject.SetActive(false);
+
+
+        leftBtn.onClick.AddListener(Left);
+        rightBtn.onClick.AddListener(Right);
+        backBtn.onClick.AddListener(Back);
     }
 
-    void Update()
+    private void UpdateTextDisplay()
     {
-        
+        normalText.gameObject.SetActive(!isHardMode);
+        hardText.gameObject.SetActive(isHardMode);
     }
 
     void Left()
     {
-        SceneManager.LoadScene("SampleScene");
+        isHardMode = !isHardMode;
+        UpdateTextDisplay();
     }
-
 
     void Right()
     {
-        SceneManager.LoadScene("Game2");
+        isHardMode = !isHardMode;
+        UpdateTextDisplay();
     }
+
 
 
     void Back()
     {
-        gameObject.SetActive(false);
+        settingUI.gameObject.SetActive(false);
+        homeUI.gameObject.SetActive(true);
+        homeUIScript.isSetting = false;
     }
 
 

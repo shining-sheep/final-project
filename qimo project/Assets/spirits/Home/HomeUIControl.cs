@@ -13,6 +13,8 @@ public class HomeUIControl : MonoBehaviour
     [Header("制作人名单管理")]
     public bool isList = false;
     public GameObject ListUI;
+    public bool isSetting;
+    public GameObject SettingUI;
 
     Button startBtn;
     Button settingBtn;
@@ -37,6 +39,7 @@ public class HomeUIControl : MonoBehaviour
     {
         UImask = GetComponent<RectMask2D>();//初始化
         ListUI.gameObject.SetActive(false);//初始化
+        SettingUI.gameObject.SetActive(false);
     }
 
     void Update()
@@ -54,7 +57,9 @@ public class HomeUIControl : MonoBehaviour
 
     void Setting()
     {
-        //先不用写，我感觉。
+        SettingUI.gameObject.SetActive(true);
+        gameObject.SetActive(false);
+        isSetting = true;
     }
 
     void List()
