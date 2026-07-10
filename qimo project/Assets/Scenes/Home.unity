@@ -194,6 +194,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isList: 0
   ListUI: {fileID: 607383730}
+  isSetting: 0
+  SettingUI: {fileID: 1670466203}
 --- !u!114 &254372116
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -317,6 +319,7 @@ GameObject:
   m_Component:
   - component: {fileID: 314947828}
   - component: {fileID: 314947827}
+  - component: {fileID: 314947829}
   m_Layer: 0
   m_Name: DoNotDelete
   m_TagString: Untagged
@@ -353,6 +356,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &314947829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 314947826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba7ef5d47bc39e6418b5c9663344a6d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  normalText: {fileID: 608344161}
+  hardText: {fileID: 952277144}
+  settingUI: {fileID: 1670466203}
+  homeUI: {fileID: 254372111}
+  homeUIScript: {fileID: 254372115}
+  leftBtn: {fileID: 1446498108}
+  rightBtn: {fileID: 2053899980}
+  backBtn: {fileID: 1797137461}
 --- !u!1 &350072408
 GameObject:
   m_ObjectHideFlags: 0
@@ -2070,14 +2093,13 @@ GameObject:
   - component: {fileID: 1670466204}
   - component: {fileID: 1670466206}
   - component: {fileID: 1670466205}
-  - component: {fileID: 1670466207}
   m_Layer: 5
   m_Name: SettingPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1670466204
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2141,20 +2163,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1670466203}
   m_CullTransparentMesh: 1
---- !u!114 &1670466207
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1670466203}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba7ef5d47bc39e6418b5c9663344a6d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Normaled: {fileID: 608344161}
-  Hard: {fileID: 952277144}
 --- !u!1 &1708045777
 GameObject:
   m_ObjectHideFlags: 0

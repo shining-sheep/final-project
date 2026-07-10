@@ -2,23 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ListUIControl : MonoBehaviour//这个代码就放在这，关联性很低的
+public class ListUIControl : MonoBehaviour
 {
-    // Start is called before the first frame update
 
 
-    public GameObject ListUI;
-    
-    public GameObject HomeUI;
-
-    public HomeUIControl UIScript;
+    [SerializeField] private GameObject ListUI;
+    [SerializeField] private GameObject HomeUI;
+    [SerializeField] private HomeUIControl UIScript;
     void Start()
     {
         HomeUI.gameObject.SetActive(true);
         ListUI.gameObject.SetActive(false);
     }
 
-    // Update is called once per frame
     void Update()
     {
 
@@ -26,6 +22,7 @@ public class ListUIControl : MonoBehaviour//这个代码就放在这，关联性很低的
         {
             UIScript.gameObject.SetActive(true);
             ListUI.gameObject.SetActive(false);
+            UIScript.isList = false;
         }
     }
 }
