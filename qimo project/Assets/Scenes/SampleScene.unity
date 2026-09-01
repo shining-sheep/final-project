@@ -370,11 +370,19 @@ CompositeCollider2D:
         Y: 20000000
       - X: 10000000
         Y: 0
-      - X: -79999900
+      - X: -70312384
         Y: 0
-      - X: -79999900
-        Y: 41
-      - X: -79999959
+      - X: -69999905
+        Y: 624966
+      - X: -70312419
+        Y: -70
+      - X: -70312468
+        Y: -100
+      - X: -109687532
+        Y: -100
+      - X: -109687581
+        Y: -70
+      - X: -109687666
         Y: 100
       - X: -200000041
         Y: 100
@@ -2684,7 +2692,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -15.02, y: 4.2599993, z: -9}
+  m_LocalPosition: {x: -9.610001, y: 7.039999, z: -9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1139869933}
@@ -2746,7 +2754,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 544937178}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -15.02, y: 4.2599993, z: -9}
+  m_LocalPosition: {x: -9.610001, y: 7.039999, z: -9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1093340761}
@@ -2901,13 +2909,13 @@ GameObject:
   - component: {fileID: 672030748}
   - component: {fileID: 672030750}
   - component: {fileID: 672030751}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &672030748
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2920,11 +2928,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fca63d129bd7c5f448f2ff0f0ffd8a98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  groundCheckDistance: 0.9
-  wallCheckDistance: 0.5
   whatIsGround:
     serializedVersion: 2
     m_Bits: 64
+  groundCheckDistance: 0.9
+  wallCheckDistance: 0.5
   groundCheck: {fileID: 672030749}
   primaryWallCheck: {fileID: 521723784}
   secondaryWallCheck: {fileID: 74474705}
@@ -2950,7 +2958,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 672030747}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -15.02, y: 1.46, z: 1}
+  m_LocalPosition: {x: -9.61, y: 4.24, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1251792594}
@@ -12359,6 +12367,7 @@ GameObject:
   - component: {fileID: 1362614727}
   - component: {fileID: 1362614729}
   - component: {fileID: 1362614728}
+  - component: {fileID: 1362614730}
   m_Layer: 0
   m_Name: Animator
   m_TagString: Untagged
@@ -12452,6 +12461,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1362614730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1362614726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e8bdd5a6afb98c4c81d51fda996841f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1367826944
 GameObject:
   m_ObjectHideFlags: 0
@@ -12576,7 +12597,7 @@ GameObject:
   - component: {fileID: 1432830127}
   - component: {fileID: 1432830130}
   - component: {fileID: 1432830129}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Enemy Skeleton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12595,17 +12616,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23e10a34567ceb745a9a18ea15594477, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  groundCheckDistance: 0.5
-  wallCheckDistance: 0.9
   whatIsGround:
     serializedVersion: 2
     m_Bits: 64
+  groundCheckDistance: 0.5
+  wallCheckDistance: 0.9
   groundCheck: {fileID: 1367826945}
   primaryWallCheck: {fileID: 1432830128}
   secondaryWallCheck: {fileID: 1432830128}
   idleTime: 2
   moveSpeed: 1.4
   moveAnimSpeedMultiplier: 1
+  whatIsPlayer:
+    serializedVersion: 2
+    m_Bits: 128
+  playerCheck: {fileID: 1432830128}
+  playerCheckDistance: 10
 --- !u!4 &1432830128
 Transform:
   m_ObjectHideFlags: 0
