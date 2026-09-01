@@ -55,7 +55,7 @@ public class Entity : MonoBehaviour
 
     }
 
-    private void Update()
+    protected virtual  void Update()
     {
         HandleCollisionDetection();
         stateMachine.UpdateAciveState();
@@ -63,9 +63,9 @@ public class Entity : MonoBehaviour
 
     
 
-    public void CallAnimationTrigger()
+    public void CurrentStateAnimationTrigger()
     {
-        stateMachine.currentState.CallAnimationTrigger();
+        stateMachine.currentState.AnimationTrigger();
     }
 
 
@@ -75,7 +75,7 @@ public class Entity : MonoBehaviour
         HandleFlip(xVelocity);
     }
 
-    private void HandleFlip(float xVelocity)
+    public void HandleFlip(float xVelocity)
     {
         if (xVelocity > 0 && facingRight == false)
             Flip();

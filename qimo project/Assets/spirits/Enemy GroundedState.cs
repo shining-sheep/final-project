@@ -12,7 +12,7 @@ public class EnemyGroundedState : EnemyState
     {
         base.Update();
 
-        if (enemy.PlayerDetection() == true)
+        if (enemy.PlayerDetected() == true)
             StateMachine.changeState(enemy.battleState);
     }
 }

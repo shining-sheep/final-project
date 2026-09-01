@@ -13,6 +13,6 @@ public class EnemyAttackState : EnemyState
         base.Update();
 
         if (triggerCalled)
-            StateMachine.changeState (enemy.idleState);
+            StateMachine.changeState (enemy.battleState);
     }
 }
