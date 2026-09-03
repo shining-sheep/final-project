@@ -3050,7 +3050,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a54bbaf0df14d340a921957c88580a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 35
+  damage: 25
   targetCheck: {fileID: 374250255}
   targetCheckRadius: 1
   wahtIsTarget:
