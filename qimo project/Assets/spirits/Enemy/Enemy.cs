@@ -38,6 +38,11 @@ public class Enemy : Entity
         stateMachine.changeState(deadState);
     }
 
+    private void HandlePlayerDeath()
+    {
+        stateMachine.changeState(idleState);
+    }
+
 
     public void TryEnterBattleState(Transform player)
     {
@@ -80,5 +85,15 @@ public class Enemy : Entity
         Gizmos.DrawLine(playerCheck.position, new Vector3(playerCheck.position.x + (facingDir * attackDistance), playerCheck.position.y));
         Gizmos.color = Color.green;
         Gizmos.DrawLine(playerCheck.position, new Vector3(playerCheck.position.x + (facingDir * minRetreatDistance), playerCheck.position.y));
+    }
+
+    private void OnEnable()
+    {
+        Player.OnPlayerDeath += HandlePlayerDeath;
+    }
+
+    private void OnDisable()
+    {
+        Player.OnPlayerDeath -= HandlePlayerDeath;
     }
 }
