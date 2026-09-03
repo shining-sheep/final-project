@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EntityCombat : MonoBehaviour
 {
-    
+    public float damage = 10;
 
     [Header("Target detection")]
     [SerializeField] private Transform targetCheck;
@@ -17,7 +17,8 @@ public class EntityCombat : MonoBehaviour
 
         foreach(var target in GetDetectedColliders())
         {
-            Debug.Log("a" + target.name);
+            EntityHealth targetHealth = target.GetComponent<EntityHealth>();
+            targetHealth?.TakeDamage(damage,transform);
         }
     }
 

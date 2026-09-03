@@ -2940,9 +2940,10 @@ GameObject:
   - component: {fileID: 672030750}
   - component: {fileID: 672030751}
   - component: {fileID: 672030752}
+  - component: {fileID: 672030753}
   m_Layer: 7
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3048,11 +3049,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a54bbaf0df14d340a921957c88580a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 10
   targetCheck: {fileID: 374250255}
   targetCheckRadius: 1
   wahtIsTarget:
     serializedVersion: 2
     m_Bits: 256
+--- !u!114 &672030753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 672030747}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adc6f45e3b49bc04696db8292577f428, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHp: 100
+  isDead: 0
 --- !u!1 &707646970
 GameObject:
   m_ObjectHideFlags: 0
@@ -12677,6 +12693,7 @@ GameObject:
   - component: {fileID: 1432830130}
   - component: {fileID: 1432830129}
   - component: {fileID: 1432830131}
+  - component: {fileID: 1432830132}
   m_Layer: 8
   m_Name: Enemy Skeleton
   m_TagString: Untagged
@@ -12783,11 +12800,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a54bbaf0df14d340a921957c88580a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 10
   targetCheck: {fileID: 707646971}
   targetCheckRadius: 1
   wahtIsTarget:
     serializedVersion: 2
     m_Bits: 128
+--- !u!114 &1432830132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1432830126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec65f0df03f66b9498bf50fa97a53f05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHp: 100
+  isDead: 0
 --- !u!1 &1754390451
 GameObject:
   m_ObjectHideFlags: 0
