@@ -5,7 +5,9 @@ using UnityEngine;
 public class EntityCombat : MonoBehaviour
 {
     private Entity_VFX vfx;
-    public float damage = 10;
+    private EntityStats stats;
+    
+
 
     [Header("Target detection")]
     [SerializeField] private Transform targetCheck;
@@ -15,6 +17,7 @@ public class EntityCombat : MonoBehaviour
     private void Awake()
     {
         vfx = GetComponent<Entity_VFX>();
+        stats = GetComponent<EntityStats>();
     }
 
     public void PerformAttack()
@@ -28,9 +31,12 @@ public class EntityCombat : MonoBehaviour
             if (damgable == null)
                 continue;
 
+            
+            float damage = stats.GetPhyiscalDamge(out bool isCrit);
+            bool targetGoHit = damgable.TakeDamage(damage, transform);
 
-            damgable?.TakeDamage(damage, transform);
-            vfx.CreateOnHitVFX(target.transform);
+            if(targetGoHit)
+              vfx.CreateOnHitVFX(target.transform,isCrit);
         }
     }
 

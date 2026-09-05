@@ -3113,6 +3113,7 @@ GameObject:
   - component: {fileID: 672030752}
   - component: {fileID: 672030753}
   - component: {fileID: 672030754}
+  - component: {fileID: 672030755}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -3222,7 +3223,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6e3c58da46ee4046876995a26124e42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 20
   targetCheck: {fileID: 374250255}
   targetCheckRadius: 1
   wahtIsTarget:
@@ -3242,7 +3242,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentHp: 0
-  maxHp: 200
   isDead: 0
   knockbackPower: {x: 1.5, y: 2.5}
   heavyKnockbackPower: {x: 7, y: 7}
@@ -3265,6 +3264,54 @@ MonoBehaviour:
   onDamageVfxDuration: 0.15
   hitVfxColor: {r: 1, g: 1, b: 1, a: 1}
   hitVfx: {fileID: 6044231023651991931, guid: c10bbb10f637fa24d862513221c1ce55, type: 3}
+  critHitvfx: {fileID: 8254545934430720141, guid: 7c1c72e1d78f7c24aa84a736a89bd9f5, type: 3}
+--- !u!114 &672030755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 672030747}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c76db3f315d7c4c4c85528813792cef3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth:
+    baseValue: 1000
+  major:
+    strength:
+      baseValue: 0
+    agillity:
+      baseValue: 0
+    intelligence:
+      baseValue: 0
+    vitality:
+      baseValue: 10
+  offense:
+    damage:
+      baseValue: 10
+    critPower:
+      baseValue: 50
+    critChance:
+      baseValue: 50
+    fireDamage:
+      baseValue: 0
+    iceDamage:
+      baseValue: 0
+    lightningDamage:
+      baseValue: 0
+  defense:
+    armor:
+      baseValue: 0
+    evasion:
+      baseValue: 0
+    fireRes:
+      baseValue: 0
+    iceRes:
+      baseValue: 0
+    lightningREs:
+      baseValue: 0
 --- !u!1 &707646970
 GameObject:
   m_ObjectHideFlags: 0
@@ -4003,6 +4050,7 @@ MonoBehaviour:
   onDamageVfxDuration: 0.2
   hitVfxColor: {r: 1, g: 1, b: 1, a: 1}
   hitVfx: {fileID: 0}
+  critHitvfx: {fileID: 0}
 --- !u!1 &1297532296
 GameObject:
   m_ObjectHideFlags: 0
@@ -13414,6 +13462,7 @@ GameObject:
   - component: {fileID: 1432830131}
   - component: {fileID: 1432830132}
   - component: {fileID: 1432830133}
+  - component: {fileID: 1432830134}
   m_Layer: 8
   m_Name: Enemy Skeleton
   m_TagString: Untagged
@@ -13525,7 +13574,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a54bbaf0df14d340a921957c88580a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 25
   targetCheck: {fileID: 707646971}
   targetCheckRadius: 1
   wahtIsTarget:
@@ -13544,7 +13592,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentHp: 0
-  maxHp: 200
   isDead: 0
   knockbackPower: {x: 1.5, y: 2.5}
   heavyKnockbackPower: {x: 7, y: 7}
@@ -13567,7 +13614,55 @@ MonoBehaviour:
   onDamageVfxDuration: 0.2
   hitVfxColor: {r: 0.3490566, g: 0.3490566, b: 0.3490566, a: 1}
   hitVfx: {fileID: 6044231023651991931, guid: c10bbb10f637fa24d862513221c1ce55, type: 3}
+  critHitvfx: {fileID: 6619442648059834290, guid: 7c1c72e1d78f7c24aa84a736a89bd9f5, type: 3}
   attackAlert: {fileID: 624522211}
+--- !u!114 &1432830134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1432830126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c76db3f315d7c4c4c85528813792cef3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth:
+    baseValue: 1000
+  major:
+    strength:
+      baseValue: 0
+    agillity:
+      baseValue: 0
+    intelligence:
+      baseValue: 0
+    vitality:
+      baseValue: 0
+  offense:
+    damage:
+      baseValue: 10
+    critPower:
+      baseValue: 0
+    critChance:
+      baseValue: 0
+    fireDamage:
+      baseValue: 0
+    iceDamage:
+      baseValue: 0
+    lightningDamage:
+      baseValue: 0
+  defense:
+    armor:
+      baseValue: 0
+    evasion:
+      baseValue: 0
+    fireRes:
+      baseValue: 0
+    iceRes:
+      baseValue: 0
+    lightningREs:
+      baseValue: 0
 --- !u!1 &1494988519
 GameObject:
   m_ObjectHideFlags: 0
