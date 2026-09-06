@@ -3114,6 +3114,7 @@ GameObject:
   - component: {fileID: 672030753}
   - component: {fileID: 672030754}
   - component: {fileID: 672030755}
+  - component: {fileID: 672030756}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -3228,6 +3229,8 @@ MonoBehaviour:
   wahtIsTarget:
     serializedVersion: 2
     m_Bits: 256
+  defaultDuration: 3
+  chillSlowMultiplier: 0.6
   counterRecovery: 0.25
 --- !u!114 &672030753
 MonoBehaviour:
@@ -3265,6 +3268,7 @@ MonoBehaviour:
   hitVfxColor: {r: 1, g: 0, b: 0, a: 1}
   hitVfx: {fileID: 6044231023651991931, guid: c10bbb10f637fa24d862513221c1ce55, type: 3}
   critHitvfx: {fileID: 1742112135404411229, guid: 2c6ef48b83bd02c4593693c065c6fa2f, type: 3}
+  chillvfx: {r: 0, g: 1, b: 1, a: 1}
 --- !u!114 &672030755
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3300,7 +3304,7 @@ MonoBehaviour:
     fireDamage:
       baseValue: 0
     iceDamage:
-      baseValue: 0
+      baseValue: 10
     lightningDamage:
       baseValue: 0
   defense:
@@ -3314,6 +3318,18 @@ MonoBehaviour:
       baseValue: 0
     lightningRes:
       baseValue: 0
+--- !u!114 &672030756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 672030747}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22cbe893424b3d949a8114fb37fb6276, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &707646970
 GameObject:
   m_ObjectHideFlags: 0
@@ -4053,6 +4069,7 @@ MonoBehaviour:
   hitVfxColor: {r: 1, g: 1, b: 1, a: 1}
   hitVfx: {fileID: 0}
   critHitvfx: {fileID: 0}
+  chillvfx: {r: 0, g: 1, b: 1, a: 1}
 --- !u!1 &1297532296
 GameObject:
   m_ObjectHideFlags: 0
@@ -13465,6 +13482,7 @@ GameObject:
   - component: {fileID: 1432830132}
   - component: {fileID: 1432830133}
   - component: {fileID: 1432830134}
+  - component: {fileID: 1432830135}
   m_Layer: 8
   m_Name: Enemy Skeleton
   m_TagString: Untagged
@@ -13581,6 +13599,8 @@ MonoBehaviour:
   wahtIsTarget:
     serializedVersion: 2
     m_Bits: 128
+  defaultDuration: 3
+  chillSlowMultiplier: 0.4
 --- !u!114 &1432830132
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13617,6 +13637,7 @@ MonoBehaviour:
   hitVfxColor: {r: 0.3490566, g: 0.3490566, b: 0.3490566, a: 1}
   hitVfx: {fileID: 6044231023651991931, guid: c10bbb10f637fa24d862513221c1ce55, type: 3}
   critHitvfx: {fileID: 1742112135404411229, guid: 2c6ef48b83bd02c4593693c065c6fa2f, type: 3}
+  chillvfx: {r: 0, g: 1, b: 1, a: 1}
   attackAlert: {fileID: 624522211}
 --- !u!114 &1432830134
 MonoBehaviour:
@@ -13651,7 +13672,7 @@ MonoBehaviour:
     armorReduction:
       baseValue: 0
     fireDamage:
-      baseValue: 100
+      baseValue: 1
     iceDamage:
       baseValue: 25
     lightningDamage:
@@ -13667,6 +13688,18 @@ MonoBehaviour:
       baseValue: 0
     lightningRes:
       baseValue: 0
+--- !u!114 &1432830135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1432830126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22cbe893424b3d949a8114fb37fb6276, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1494988519
 GameObject:
   m_ObjectHideFlags: 0

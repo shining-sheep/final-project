@@ -83,7 +83,7 @@ protected void ReduceHp(float damage)
     private void Die()
     {
         isDead = true;
-        entity?.EntityDead();
+        entity?.EntityDeath();
     }
 
     private void UpdateHealthBar()
