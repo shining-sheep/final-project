@@ -26,14 +26,14 @@ public class EntityCombat : MonoBehaviour
 
         foreach(var target in GetDetectedColliders())
         {
-            IDamgable damgable = target.GetComponent<IDamgable>();
+            IDamgable damegable = target.GetComponent<IDamgable>();
 
-            if (damgable == null)
+            if (damegable == null)
                 continue;
 
-            
+            float elementalDamage = stats.GetElementalDamage();
             float damage = stats.GetPhyiscalDamge(out bool isCrit);
-            bool targetGoHit = damgable.TakeDamage(damage, transform);
+            bool targetGoHit = damegable.TakeDamage(damage,elementalDamage, transform);
 
             if(targetGoHit)
               vfx.CreateOnHitVFX(target.transform,isCrit);
