@@ -28,17 +28,32 @@ public class EntityStats : MonoBehaviour
         return finalDamage;
     }
 
-
-
-    //血量计算
-    public float GetMaxHealth()
+    //护甲
+    public float GetArmorMitigation(float armorReduction)
     {
-        float baseMaxHealth = maxHealth.GetValue();
-        float bonusMaxHealth = major.vitality.GetValue()* 5;
-        float finalMaxHealth = baseMaxHealth + bonusMaxHealth;
-        return finalMaxHealth;
+        float baseArmor = defense.armor.GetValue();
+        float bounsArmor = major.vitality.GetValue();
+        float totalArmor = baseArmor + bounsArmor;
 
+        float reductionMutliplier = Mathf.Clamp(1 - armorReduction,0,1);
+        float effectiveArmor = totalArmor * reductionMutliplier;
+
+        float mitigation = effectiveArmor / (effectiveArmor + 100);
+        float mitigationCap = 0.85f;
+        float finalMitigation = Mathf.Clamp(mitigation, 0, mitigationCap);
+
+        return finalMitigation;
     }
+
+    //破甲
+    public float GetArmorReduction()
+    {
+        float finalReduction = offense.armorReduction.GetValue() / 100;
+
+        return finalReduction;
+    }
+
+  
     //闪避概率计算
     public float GetEvasion()
     {
@@ -50,6 +65,15 @@ public class EntityStats : MonoBehaviour
 
         float finalEvasion = Mathf.Clamp(totalEvasion, 0, evasionCap);
         return finalEvasion;
+
+    }
+    //血量计算
+    public float GetMaxHealth()
+    {
+        float baseMaxHealth = maxHealth.GetValue();
+        float bonusMaxHealth = major.vitality.GetValue() * 5;
+        float finalMaxHealth = baseMaxHealth + bonusMaxHealth;
+        return finalMaxHealth;
 
     }
 
