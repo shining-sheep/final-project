@@ -3262,9 +3262,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onDamageMaterial: {fileID: 2100000, guid: b18be6fed1b19284597e004aead50c29, type: 2}
   onDamageVfxDuration: 0.15
-  hitVfxColor: {r: 1, g: 1, b: 1, a: 1}
+  hitVfxColor: {r: 1, g: 0, b: 0, a: 1}
   hitVfx: {fileID: 6044231023651991931, guid: c10bbb10f637fa24d862513221c1ce55, type: 3}
-  critHitvfx: {fileID: 8254545934430720141, guid: 7c1c72e1d78f7c24aa84a736a89bd9f5, type: 3}
+  critHitvfx: {fileID: 1742112135404411229, guid: 2c6ef48b83bd02c4593693c065c6fa2f, type: 3}
 --- !u!114 &672030755
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13614,7 +13614,7 @@ MonoBehaviour:
   onDamageVfxDuration: 0.2
   hitVfxColor: {r: 0.3490566, g: 0.3490566, b: 0.3490566, a: 1}
   hitVfx: {fileID: 6044231023651991931, guid: c10bbb10f637fa24d862513221c1ce55, type: 3}
-  critHitvfx: {fileID: 6619442648059834290, guid: 7c1c72e1d78f7c24aa84a736a89bd9f5, type: 3}
+  critHitvfx: {fileID: 1742112135404411229, guid: 2c6ef48b83bd02c4593693c065c6fa2f, type: 3}
   attackAlert: {fileID: 624522211}
 --- !u!114 &1432830134
 MonoBehaviour:
