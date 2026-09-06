@@ -12,5 +12,5 @@ public class StatDefenseGroup
     //·¨¿¹
     public Stat fireRes;
     public Stat iceRes;
-    public Stat lightningREs;
+    public Stat lightningRes;
 }
