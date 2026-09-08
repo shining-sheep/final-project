@@ -3358,8 +3358,8 @@ MonoBehaviour:
   wahtIsTarget:
     serializedVersion: 2
     m_Bits: 256
-  defaultDuration: 3
-  chillSlowMultiplier: 0.6
+  defaultDuration: 6
+  chillSlowMultiplier: 0.2
   counterRecovery: 0.25
 --- !u!114 &672030753
 MonoBehaviour:
@@ -3398,6 +3398,7 @@ MonoBehaviour:
   hitVfx: {fileID: 6044231023651991931, guid: c10bbb10f637fa24d862513221c1ce55, type: 3}
   critHitvfx: {fileID: 1742112135404411229, guid: 2c6ef48b83bd02c4593693c065c6fa2f, type: 3}
   chillvfx: {r: 0, g: 1, b: 1, a: 1}
+  burnVfx: {r: 0.6132076, g: 0, b: 0, a: 1}
 --- !u!114 &672030755
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3411,7 +3412,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth:
-    baseValue: 1000
+    baseValue: 500
   major:
     strength:
       baseValue: 0
@@ -3423,17 +3424,17 @@ MonoBehaviour:
       baseValue: 0
   offense:
     damage:
-      baseValue: 10
-    critPower:
       baseValue: 0
+    critPower:
+      baseValue: 250
     critChance:
       baseValue: 50
     armorReduction:
       baseValue: 0
     fireDamage:
-      baseValue: 0
+      baseValue: 100
     iceDamage:
-      baseValue: 10
+      baseValue: 0
     lightningDamage:
       baseValue: 0
   defense:
@@ -4274,7 +4275,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1283920250}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.841, y: 1.317, z: -1.1078956}
+  m_LocalPosition: {x: 6.627, y: 4.319, z: -1.1078956}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2068996288}
@@ -4299,6 +4300,7 @@ MonoBehaviour:
   hitVfx: {fileID: 0}
   critHitvfx: {fileID: 0}
   chillvfx: {r: 0, g: 1, b: 1, a: 1}
+  burnVfx: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1 &1297532296
 GameObject:
   m_ObjectHideFlags: 0
@@ -13842,7 +13844,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec65f0df03f66b9498bf50fa97a53f05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHp: 0
+  currentHp: 1000
   isDead: 0
   knockbackPower: {x: 1.5, y: 2.5}
   heavyKnockbackPower: {x: 7, y: 7}
@@ -13867,6 +13869,7 @@ MonoBehaviour:
   hitVfx: {fileID: 6044231023651991931, guid: c10bbb10f637fa24d862513221c1ce55, type: 3}
   critHitvfx: {fileID: 1742112135404411229, guid: 2c6ef48b83bd02c4593693c065c6fa2f, type: 3}
   chillvfx: {r: 0, g: 1, b: 1, a: 1}
+  burnVfx: {r: 1, g: 0, b: 0, a: 1}
   attackAlert: {fileID: 624522211}
 --- !u!114 &1432830134
 MonoBehaviour:
@@ -13901,11 +13904,11 @@ MonoBehaviour:
     armorReduction:
       baseValue: 0
     fireDamage:
-      baseValue: 1
+      baseValue: 0
     iceDamage:
-      baseValue: 25
+      baseValue: 0
     lightningDamage:
-      baseValue: 6
+      baseValue: 0
   defense:
     armor:
       baseValue: 0

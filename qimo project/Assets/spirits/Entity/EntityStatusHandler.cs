@@ -6,22 +6,52 @@ public class EntityStatusHandler : MonoBehaviour
 {
     private Entity entity;
     private Entity_VFX entityVfx;
-    private EntityStats stats;
+    private EntityStats entityStats;
+    private EntityHealth entityHealth;
     private ElementType currentEffect = ElementType.None;
 
     private void Awake()
     {
-        stats = GetComponent<EntityStats>();
+        entityStats = GetComponent<EntityStats>();
+        entityHealth = GetComponent<EntityHealth>();
         entity = GetComponent<Entity>();
         entityVfx = GetComponent<Entity_VFX>();
     }
 
+    public void ApplyBurnEffect(float duration,float fireDamage)
+    {
+        float fireResistance = entityStats.GetElementalResistance(ElementType.Fire);
+        float  finalDamage = fireDamage * (1 - fireResistance);
+
+
+        StartCoroutine(BurnEffectCo(duration, finalDamage));
+    }
+
+    private IEnumerator BurnEffectCo(float duration, float totalDamage)
+    {
+        currentEffect = ElementType.Fire;
+        entityVfx.PlayOnStatusVfx(duration, ElementType.Fire);
+
+        int ticksPersecond = 2;
+        int tickCount = Mathf.RoundToInt(ticksPersecond * duration);
+
+        float damagePerTick = totalDamage / tickCount;
+        float tickInterval = 1f / ticksPersecond;
+
+        for(int i = 0; i < tickCount; i++)
+        {
+            entityHealth.ReduceHp(damagePerTick);
+            yield return new WaitForSeconds(tickInterval);
+        }
+        currentEffect = ElementType.None;
+    }
+
     public void ApplyChilledEffect(float duration, float slowMultiplier)
     {
-        float iceResistance = stats.GetElementalResistance(ElementType.Ice);
-        float reducedDuration = duration * (1 - iceResistance);
+        float iceResistance = entityStats.GetElementalResistance(ElementType.Ice);
+        float finalDuration = duration * (1 - iceResistance);
 
-        StartCoroutine(ChilledEffectCo(reducedDuration,slowMultiplier));
+        StartCoroutine(ChilledEffectCo(finalDuration,slowMultiplier));
 
     }
 
