@@ -1,0 +1,12 @@
+fileFormatVersion: 2
+guid: 22cbe893424b3d949a8114fb37fb6276
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - lightningStirkeVfx: {fileID: 3933324054272411735, guid: fc6683c6ecfc2b342a417fe822f260f2, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

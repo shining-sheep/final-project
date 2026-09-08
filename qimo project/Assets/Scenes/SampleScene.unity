@@ -3243,6 +3243,7 @@ GameObject:
   - component: {fileID: 672030753}
   - component: {fileID: 672030754}
   - component: {fileID: 672030755}
+  - component: {fileID: 672030756}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -3357,6 +3358,11 @@ MonoBehaviour:
   wahtIsTarget:
     serializedVersion: 2
     m_Bits: 256
+  defaultDuration: 6
+  chillSlowMultiplier: 0.2
+  electrifyChargeBuildUp: 0.4
+  fireScale: 0.8
+  lightningScale: 2.5
   counterRecovery: 0.25
 --- !u!114 &672030753
 MonoBehaviour:
@@ -3394,6 +3400,9 @@ MonoBehaviour:
   hitVfxColor: {r: 1, g: 0, b: 0, a: 1}
   hitVfx: {fileID: 6044231023651991931, guid: c10bbb10f637fa24d862513221c1ce55, type: 3}
   critHitvfx: {fileID: 1742112135404411229, guid: 2c6ef48b83bd02c4593693c065c6fa2f, type: 3}
+  chillvfx: {r: 0, g: 1, b: 1, a: 1}
+  burnVfx: {r: 0.6132076, g: 0, b: 0, a: 1}
+  electrifyVfx: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
 --- !u!114 &672030755
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3407,7 +3416,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth:
-    baseValue: 1000
+    baseValue: 500
   major:
     strength:
       baseValue: 0
@@ -3419,9 +3428,9 @@ MonoBehaviour:
       baseValue: 0
   offense:
     damage:
-      baseValue: 10
-    critPower:
       baseValue: 0
+    critPower:
+      baseValue: 250
     critChance:
       baseValue: 50
     armorReduction:
@@ -3431,7 +3440,7 @@ MonoBehaviour:
     iceDamage:
       baseValue: 0
     lightningDamage:
-      baseValue: 0
+      baseValue: 50
   defense:
     armor:
       baseValue: 0
@@ -3443,6 +3452,21 @@ MonoBehaviour:
       baseValue: 0
     lightningRes:
       baseValue: 0
+--- !u!114 &672030756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 672030747}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22cbe893424b3d949a8114fb37fb6276, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lightningStirkeVfx: {fileID: 3933324054272411735, guid: fc6683c6ecfc2b342a417fe822f260f2, type: 3}
+  currentCharge: 0
+  maximumCharge: 1
 --- !u!1 &707646970
 GameObject:
   m_ObjectHideFlags: 0
@@ -4258,7 +4282,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1283920250}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.841, y: 1.317, z: -1.1078956}
+  m_LocalPosition: {x: 6.627, y: 4.319, z: -1.1078956}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2068996288}
@@ -4282,6 +4306,9 @@ MonoBehaviour:
   hitVfxColor: {r: 1, g: 1, b: 1, a: 1}
   hitVfx: {fileID: 0}
   critHitvfx: {fileID: 0}
+  chillvfx: {r: 0, g: 1, b: 1, a: 1}
+  burnVfx: {r: 1, g: 0, b: 0, a: 1}
+  electrifyVfx: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
 --- !u!1 &1297532296
 GameObject:
   m_ObjectHideFlags: 0
@@ -13694,6 +13721,7 @@ GameObject:
   - component: {fileID: 1432830132}
   - component: {fileID: 1432830133}
   - component: {fileID: 1432830134}
+  - component: {fileID: 1432830135}
   m_Layer: 8
   m_Name: Enemy Skeleton
   m_TagString: Untagged
@@ -13810,6 +13838,11 @@ MonoBehaviour:
   wahtIsTarget:
     serializedVersion: 2
     m_Bits: 128
+  defaultDuration: 3
+  chillSlowMultiplier: 0.4
+  electrifyChargeBuildUp: 0.4
+  fireScale: 0.8
+  lightningScale: 2.5
 --- !u!114 &1432830132
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13822,7 +13855,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec65f0df03f66b9498bf50fa97a53f05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentHp: 0
+  currentHp: 1000
   isDead: 0
   knockbackPower: {x: 1.5, y: 2.5}
   heavyKnockbackPower: {x: 7, y: 7}
@@ -13846,6 +13879,9 @@ MonoBehaviour:
   hitVfxColor: {r: 0.3490566, g: 0.3490566, b: 0.3490566, a: 1}
   hitVfx: {fileID: 6044231023651991931, guid: c10bbb10f637fa24d862513221c1ce55, type: 3}
   critHitvfx: {fileID: 1742112135404411229, guid: 2c6ef48b83bd02c4593693c065c6fa2f, type: 3}
+  chillvfx: {r: 0, g: 1, b: 1, a: 1}
+  burnVfx: {r: 1, g: 0, b: 0, a: 1}
+  electrifyVfx: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   attackAlert: {fileID: 624522211}
 --- !u!114 &1432830134
 MonoBehaviour:
@@ -13880,11 +13916,11 @@ MonoBehaviour:
     armorReduction:
       baseValue: 0
     fireDamage:
-      baseValue: 100
+      baseValue: 0
     iceDamage:
-      baseValue: 25
+      baseValue: 0
     lightningDamage:
-      baseValue: 6
+      baseValue: 0
   defense:
     armor:
       baseValue: 0
@@ -13896,6 +13932,21 @@ MonoBehaviour:
       baseValue: 0
     lightningRes:
       baseValue: 0
+--- !u!114 &1432830135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1432830126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22cbe893424b3d949a8114fb37fb6276, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lightningStirkeVfx: {fileID: 3933324054272411735, guid: fc6683c6ecfc2b342a417fe822f260f2, type: 3}
+  currentCharge: 0
+  maximumCharge: 1
 --- !u!1 &1494988519
 GameObject:
   m_ObjectHideFlags: 0

@@ -34,14 +34,33 @@ public class Enemy : Entity
     [SerializeField] private Transform playerCheck;
     [SerializeField] private float playerCheckDistance = 10;
 
-    public void EnableCounterWindow(bool enable) => canBeStunned = enable;
-
     public Transform player { get; private set; }
 
-
-    public override void EntityDead()
+    protected override IEnumerator SlowDownEntityCo(float duration, float slowMultiplier)
     {
-        base.EntityDead();
+        float originalMoveSpeed = moveSpeed;
+        float originalBattleSpeed = battleMoveSpeed;
+        float originalAnimSpeed = anim.speed;
+
+        float speedMultiplier = 1 - slowMultiplier;
+
+        moveSpeed = moveSpeed * slowMultiplier;
+        battleMoveSpeed = battleMoveSpeed * speedMultiplier;
+        anim.speed = anim.speed * speedMultiplier;
+
+       yield return new WaitForSeconds(duration);
+
+        moveSpeed = originalMoveSpeed;
+        battleMoveSpeed = originalBattleSpeed;
+        anim.speed = originalAnimSpeed;
+    }
+
+    public void EnableCounterWindow(bool enable) => canBeStunned = enable;
+
+
+    public override void EntityDeath()
+    {
+        base.EntityDeath();
 
         stateMachine.changeState(deadState);
     }
