@@ -5,7 +5,12 @@ using System;
 [Serializable]
 
 public class StatOffenseGroup
-{//物理伤害
+{
+    public Stat attckSpeed;
+    
+    
+    
+    //物理伤害
     public Stat damage;
     public Stat critPower;
     public Stat critChance;
