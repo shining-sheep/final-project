@@ -3360,6 +3360,9 @@ MonoBehaviour:
     m_Bits: 256
   defaultDuration: 6
   chillSlowMultiplier: 0.2
+  electrifyChargeBuildUp: 0.4
+  fireScale: 0.8
+  lightningScale: 2.5
   counterRecovery: 0.25
 --- !u!114 &672030753
 MonoBehaviour:
@@ -3399,6 +3402,7 @@ MonoBehaviour:
   critHitvfx: {fileID: 1742112135404411229, guid: 2c6ef48b83bd02c4593693c065c6fa2f, type: 3}
   chillvfx: {r: 0, g: 1, b: 1, a: 1}
   burnVfx: {r: 0.6132076, g: 0, b: 0, a: 1}
+  electrifyVfx: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
 --- !u!114 &672030755
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3432,11 +3436,11 @@ MonoBehaviour:
     armorReduction:
       baseValue: 0
     fireDamage:
-      baseValue: 100
+      baseValue: 0
     iceDamage:
       baseValue: 0
     lightningDamage:
-      baseValue: 0
+      baseValue: 50
   defense:
     armor:
       baseValue: 0
@@ -3460,6 +3464,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22cbe893424b3d949a8114fb37fb6276, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lightningStirkeVfx: {fileID: 3933324054272411735, guid: fc6683c6ecfc2b342a417fe822f260f2, type: 3}
+  currentCharge: 0
+  maximumCharge: 1
 --- !u!1 &707646970
 GameObject:
   m_ObjectHideFlags: 0
@@ -4301,6 +4308,7 @@ MonoBehaviour:
   critHitvfx: {fileID: 0}
   chillvfx: {r: 0, g: 1, b: 1, a: 1}
   burnVfx: {r: 1, g: 0, b: 0, a: 1}
+  electrifyVfx: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
 --- !u!1 &1297532296
 GameObject:
   m_ObjectHideFlags: 0
@@ -13832,6 +13840,9 @@ MonoBehaviour:
     m_Bits: 128
   defaultDuration: 3
   chillSlowMultiplier: 0.4
+  electrifyChargeBuildUp: 0.4
+  fireScale: 0.8
+  lightningScale: 2.5
 --- !u!114 &1432830132
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13870,6 +13881,7 @@ MonoBehaviour:
   critHitvfx: {fileID: 1742112135404411229, guid: 2c6ef48b83bd02c4593693c065c6fa2f, type: 3}
   chillvfx: {r: 0, g: 1, b: 1, a: 1}
   burnVfx: {r: 1, g: 0, b: 0, a: 1}
+  electrifyVfx: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   attackAlert: {fileID: 624522211}
 --- !u!114 &1432830134
 MonoBehaviour:
@@ -13932,6 +13944,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22cbe893424b3d949a8114fb37fb6276, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lightningStirkeVfx: {fileID: 3933324054272411735, guid: fc6683c6ecfc2b342a417fe822f260f2, type: 3}
+  currentCharge: 0
+  maximumCharge: 1
 --- !u!1 &1494988519
 GameObject:
   m_ObjectHideFlags: 0

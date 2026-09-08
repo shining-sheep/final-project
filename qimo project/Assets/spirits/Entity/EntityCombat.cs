@@ -17,6 +17,10 @@ public class EntityCombat : MonoBehaviour
     [Header("Status effect details")]
     [SerializeField] private float defaultDuration = 3;
     [SerializeField] private float chillSlowMultiplier = 0.2f;
+    [SerializeField] private float electrifyChargeBuildUp = 0.4f;
+    [Space]
+    [SerializeField] private float fireScale = 0.8f;
+    [SerializeField] private float lightningScale = 2.5f;
 
     private void Awake()
     {
@@ -58,13 +62,21 @@ public class EntityCombat : MonoBehaviour
             return;
 
         if (element == ElementType.Ice && statusHandler.CanBeApplied(ElementType.Ice))
-            statusHandler.ApplyChilledEffect(defaultDuration, chillSlowMultiplier * scaleFoctor);
+            statusHandler.ApplyChillEffect(defaultDuration, chillSlowMultiplier * scaleFoctor);
 
         if (element == ElementType.Fire && statusHandler.CanBeApplied(ElementType.Fire))
         {
+            scaleFoctor = fireScale;
             float fireDamage = stats.offense.fireDamage.GetValue() * scaleFoctor;
 
             statusHandler.ApplyBurnEffect(defaultDuration, fireDamage);
+        }
+        if (element == ElementType.Lightning && statusHandler.CanBeApplied(ElementType.Lightning))
+        {
+            scaleFoctor = lightningScale;
+            float lightningDamage = stats.offense.lightningDamage.GetValue() * scaleFoctor;
+
+            statusHandler.ApplyElectrifyEffect(defaultDuration, lightningDamage, electrifyChargeBuildUp);
         }
     }
 
