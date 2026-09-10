@@ -6,7 +6,7 @@ using System;
 
 public class StatOffenseGroup
 {
-    public Stat attckSpeed;
+    public Stat attackSpeed;
     
     
     
