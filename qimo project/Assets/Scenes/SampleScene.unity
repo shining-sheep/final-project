@@ -3427,7 +3427,7 @@ MonoBehaviour:
       modifiers: []
   offense:
     attackSpeed:
-      baseValue: 0
+      baseValue: 1
       modifiers: []
     damage:
       baseValue: 50
@@ -3448,7 +3448,7 @@ MonoBehaviour:
       baseValue: 0
       modifiers: []
     lightningDamage:
-      baseValue: 0
+      baseValue: 75
       modifiers: []
   defense:
     armor:
@@ -13458,8 +13458,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -638082525
-  m_SortingLayer: -2
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7928858964255100155, guid: facf20ce402297d49bf460e49ec4ef3e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -13819,7 +13819,7 @@ MonoBehaviour:
       modifiers: []
   offense:
     attackSpeed:
-      baseValue: 0
+      baseValue: 1
       modifiers: []
     damage:
       baseValue: 150
